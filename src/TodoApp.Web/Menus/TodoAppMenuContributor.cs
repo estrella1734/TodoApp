@@ -33,6 +33,20 @@ public class TodoAppMenuContributor : IMenuContributor
                 order: 0
             )
         );
+        context.Menu.AddItem(
+        new ApplicationMenuItem(
+        "BooksStore",
+        l["書店"],
+        icon: "fa fa-book"
+        ).AddItem(
+        new ApplicationMenuItem(
+            "BooksStore.Books",
+            l["書單"],
+            url: "/Books"
+            )
+        )
+        );
+
 
         if (MultiTenancyConsts.IsEnabled)
         {
@@ -47,5 +61,7 @@ public class TodoAppMenuContributor : IMenuContributor
         administration.SetSubItemOrder(SettingManagementMenuNames.GroupName, 3);
 
         return Task.CompletedTask;
+
     }
+
 }
